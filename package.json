@@ -3,7 +3,6 @@
     "version" : "0.1.0",
     "description" : "Web page scraping tools",
     "main" : "./index.js",
-    "private": true,
     "dependencies" : {
     },
     "devDependencies" : {
