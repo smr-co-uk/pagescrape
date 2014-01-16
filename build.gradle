@@ -1,0 +1,27 @@
+
+//buildscript {
+//  repositories { mavenCentral() }
+//  dependencies { classpath 'com.github.goldin.plugins.gradle:node:0.3' }
+//}
+
+// node plugin tries to do a global install - yuk
+//apply plugin: 'node'
+//
+//node {
+//  testCommand 'mocha -R XUnit -u bdd'
+//  testInput 'test/*.js'
+//  npmLocalCache true
+//}
+
+task mochaBddTest(type: Exec) {
+  workingDir '.'
+  commandLine './build_scripts/mocha_bdd.sh'
+}
+
+task mochaTddTest(type: Exec) {
+  workingDir '.'
+  commandLine './build_scripts/mocha_tdd.sh'
+}
+
+task test(dependsOn: [mochaBddTest]) {
+}

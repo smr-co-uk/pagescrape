@@ -1,0 +1,34 @@
+{
+    "name" : "pagescrape",
+    "version" : "0.1.0",
+    "description" : "Web page scraping tools",
+    "main" : "./index.js",
+    "private": true,
+    "dependencies" : {
+    },
+    "devDependencies" : {
+        "mocha" : ""
+    },
+    "scripts" : {
+        "test" : "mocha  -R XUnit -u bdd ./test/*.js"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/smr-co-uk/pagescrape.git"
+    },
+    "keywords" : [
+        "web",
+        "page",
+        "scrape",
+        "scraping"
+    ],
+    "author" : {
+        "name" : "Peter Lapo",
+        "email" : "appsupport@smr.co.uk",
+        "url" : "http://www.smr.co.uk"
+    },
+    "license" : "GPL V.2",
+    "engine" : {
+        "node" : ">=0.4"
+    }
+}

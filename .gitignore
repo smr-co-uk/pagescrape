@@ -1,0 +1,10 @@
+/.gradle
+/attic
+/bin
+/.classpath
+node_modules
+build
+.settings
+*.bak
+*.log
+*.tmp
