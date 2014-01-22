@@ -5,5 +5,6 @@
 
 module.exports = {
     Table: require('./src/Table.js'),
-    TableDefinition: require('./src/TableDefinition.js')
+    TableDefinition: require('./src/TableDefinition.js'),
+    TableBuilder: require('./src/TableBuilder.js')
 }; 

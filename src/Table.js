@@ -31,6 +31,38 @@ Table.prototype.nrow = function() {
   return collen;
 };
 
+Table.prototype.get = function(row, col) {
+  return this.cols[col][row];
+};
+
+Table.prototype.rowToCSVString = function(row) {
+	if (row < 0 || row > this.nrow()) {
+		return '';
+	}
+    var numcols = this.ncol() - 1;	
+    var str = '';
+    var colcount = 0;
+    for (var hdr in this.headers) {
+      var val = (this.cols[hdr][row] == undefined) ? '' : this.cols[hdr][row];
+      var comma = (colcount++ < numcols) ? ',' : '';
+      str += val + comma;
+    }
+    return str;
+};
+
+Table.prototype.findRow = function(what, col) {
+  var res = [];
+  var rows = this.cols[col];
+  if (rows != null) {
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].match(what)) {
+        res.push(i);
+      }
+    }
+  }
+  return res;
+};
+
 Table.prototype.toCSVString = function() {
   var header = this.header();
   if (header.length == 0) {
@@ -45,7 +77,6 @@ Table.prototype.toCSVString = function() {
     for (var hdr in this.headers) {
       var val = (this.cols[hdr][i] == undefined) ? '' : this.cols[hdr][i];
       var comma = (colcount++ < numcols) ? ',' : '';
-      //console.log(comma + ' ' + this.ncol() + ' ' + i);
       str += val + comma;
     }
     strs += str + '\n';
@@ -62,7 +93,6 @@ Table.prototype.newRow = function() {
  * The next row is added when newRow is called.
  */
 Table.prototype.addToRow = function(name, value) {
-  //console.log(name + ':' + value);
   if (!(name in this.headers)) {  // needs the brackets
     if (this.isNotEmpty(name)) {
       this.headers[name] = name;
@@ -80,7 +110,6 @@ Table.prototype.addToRow = function(name, value) {
  * This means a row of data can be added as long as each row has the same number of columns by name
  */
 Table.prototype.addRow = function(name, value) {
-  //console.log(name + ':' + value);
   if (!(name in this.headers)) {  // needs the brackets
     if (this.isNotEmpty(name)) {
       this.headers[name] = name;

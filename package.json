@@ -4,6 +4,7 @@
     "description" : "Web page scraping tools",
     "main" : "./index.js",
     "dependencies" : {
+        "cheerio" : "0.13.1"
     },
     "devDependencies" : {
         "mocha" : ""

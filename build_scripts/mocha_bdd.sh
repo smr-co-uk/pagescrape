@@ -1,9 +1,9 @@
 #!/bin/sh
 
 . `dirname $0`/setup_nodepath.sh
-setup_nodepath $1
+setup_nodepath $*
 
-echo "Running Unit Tests in `pwd`"
+echo "Running Unit Tests in `pwd` with NODE_PATH=${NODE_PATH}"
 PATH=$PATH:/usr/local/bin
 
 files=`find "test" -name "*.js" 2> /dev/null`
